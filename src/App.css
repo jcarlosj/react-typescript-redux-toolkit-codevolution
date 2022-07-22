@@ -39,3 +39,56 @@
 .read-the-docs {
   color: #888;
 }
+
+.async-app, .store-app {
+  border: 1px dotted gray;
+  margin: 2rem 0;
+  padding: 2rem;
+}
+
+.users, .store {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4rem;
+}
+
+@media ( max-width: 1200px ) {
+  .users, .store {
+    display: block;
+  }
+}
+
+.users div, .store div {
+  flex: 1 0 auto;
+}
+
+h2 {
+  text-align: center;
+}
+
+button {
+  margin: 0 0.5rem;
+}
+
+input[type="number"] {
+  border-radius: 8px;
+  border: 1px solid lightgray;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #FFF;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+.user-list {
+  margin: 0 auto;
+  text-align: left;
+  width: 60%;
+}
+
+.lb-user-id {
+  padding: 0 .5rem;
+}
