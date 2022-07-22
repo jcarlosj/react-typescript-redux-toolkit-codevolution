@@ -1,14 +1,14 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useAppSelector, useAppDispatch } from '../../app/hooks';
 
 import { ordered, restocked } from './cakeSlice';
 
 
 const CakeView = () => {
     // ? useSelector: Permite extraer datos del estado de la tienda Redux
-    const numOfCakes = useSelector( ( state ) => state.cake.numOfCakes );   // ? state.<key-reducer>.<property-value>
+    const numOfCakes = useAppSelector( ( state ) => state.cake.numOfCakes );   // ? state.<key-reducer>.<property-value>
 
     // ? useDispatch: Devuelve una referencia a la función de despacho de la tienda Redux. Puede usarlo para enviar acciones según sea necesario.
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     return (
         <div>

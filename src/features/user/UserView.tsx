@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from 'react-redux';   
+import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import { useEffect, useRef, useState } from 'react';
 
 import { fetchUsers } from './userSlice';
@@ -12,11 +12,11 @@ const UserView = () => {
     const isEffectRun = useRef( false );
 
     // ? useSelector: Permite extraer datos del estado de la tienda Redux
-    const dataUsers = useSelector( state => state.user );       // ? state.<key-reducer> por que es un proceso asincrono
-    const dataUserId = useSelector( state => state.userById );  // ? state.<key-reducer> por que es un proceso asincrono
+    const dataUsers = useAppSelector( state => state.user );       // ? state.<key-reducer> por que es un proceso asincrono
+    const dataUserId = useAppSelector( state => state.userById );  // ? state.<key-reducer> por que es un proceso asincrono
 
     // ? useDispatch: Devuelve una referencia a la función de despacho de la tienda Redux. Puede usarlo para enviar acciones según sea necesario.
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
         // ! Verifica que el efecto no se ha lanzado

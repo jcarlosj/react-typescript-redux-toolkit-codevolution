@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useAppSelector, useAppDispatch } from '../../app/hooks';
 
 import { ordered, restocked } from './icecreamSlice';
 
@@ -8,10 +8,10 @@ const IcecreamView = () => {
     const [ amountRestock, setAmountRestock ] = useState( 1 ); 
 
     // ? useSelector: Permite extraer datos del estado de la tienda Redux
-    const numOfIcecreams = useSelector( state => state.icecream.numOfIceCreams );    // ? state.<key-reducer>.<property-value>
+    const numOfIcecreams = useAppSelector( state => state.icecream.numOfIceCreams );    // ? state.<key-reducer>.<property-value>
 
     // ? useDispatch: Devuelve una referencia a la función de despacho de la tienda Redux. Puede usarlo para enviar acciones según sea necesario.
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     return (
         <div>
