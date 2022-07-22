@@ -1,7 +1,12 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+// ! Define Type in TypeScript
+type InitialState = {
+    numOfCakes: number,
+}
 
 // ! initial state ( default values )
-const initialState = {
+const initialState:  InitialState = {
     numOfCakes: 10
 }
 
@@ -13,10 +18,10 @@ const cakeSlice = createSlice({
     // ? Dicha porción del estado requiere definir sus propios Reducers - ( previousState, action ) => newState;
     reducers: { 
         // key-action: function
-        ordered: ( state ) => {                 // ? ordered: Sera el nombre de la accion creada automáticamente, no tendremos que escribirlas a mano.
+        ordered: ( state: InitialState ) => {                 // ? ordered: Sera el nombre de la accion creada automáticamente, no tendremos que escribirlas a mano.
             state.numOfCakes--
         },
-        restocked: ( state, action ) => {       // ? restocked: Sera el nombre de la accion creada automáticamente, no tendremos que escribirlas a mano.
+        restocked: ( state: InitialState, action: PayloadAction<number> ) => {       // ? restocked: Sera el nombre de la accion creada automáticamente, no tendremos que escribirlas a mano.
             state.numOfCakes += action.payload
         }
     }

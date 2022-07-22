@@ -1,9 +1,14 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { ordered as cakeOrdered } from '../cake/cakeSlice.js';
 
+// ! Define Type in TypeScript
+type InitialState = {
+    numOfIceCreams: number,
+}
+
 // ! initial state ( default values )
-const initialState = {
+const initialState: InitialState = {
     numOfIceCreams: 20
 }
 
@@ -14,13 +19,13 @@ const icecreamSlice = createSlice({
     initialState,           // ? Dicha porción del estado requiere un estado inicial
     // ? Dicha porción del estado requiere definir sus propios Reducers - ( previousState, action ) => newState;
     reducers: {
-        ordered: ( state, action ) => {         // ? ordered: Sera el nombre de la accion creada automáticamente, no tendremos que escribirlas a mano.
+        ordered: ( state: InitialState, action: PayloadAction<number>  ) => {         // ? ordered: Sera el nombre de la accion creada automáticamente, no tendremos que escribirlas a mano.
             if( ! action.payload )
                 state.numOfIceCreams--    
             else
                 state.numOfIceCreams -= action.payload
         },          
-        restocked: ( state, action ) => {       // ? restocked: Sera el nombre de la accion creada automáticamente, no tendremos que escribirlas a mano.
+        restocked: ( state : InitialState, action : PayloadAction<number> ) => {       // ? restocked: Sera el nombre de la accion creada automáticamente, no tendremos que escribirlas a mano.
             state.numOfIceCreams += action.payload
         }
     },
@@ -35,7 +40,7 @@ const icecreamSlice = createSlice({
     // * ENFOQUE RECOMENDADO: Usar una funcion de compilacion.
     // ? builder agregará el nuevo caso
     extraReducers: ( builder ) => {
-        builder.addCase( cakeOrdered, ( state ) => {        // ? cakeActions.ordered es el action.type & la tipica funcion de un reducer
+        builder.addCase( cakeOrdered, ( state: InitialState ) => {        // ? cakeActions.ordered es el action.type & la tipica funcion de un reducer
             state.numOfIceCreams --;
         });    
     }
