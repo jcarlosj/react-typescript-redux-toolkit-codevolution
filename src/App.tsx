@@ -12,6 +12,7 @@ function App() {
 
   return (
     <div className="App">
+      <p>Proyecto realidado con <br />React (TypeScript): React-Redux & Redux Toolkit</p>
       <div className="store-app">
         <h2>Tienda de pasteles y helados</h2>
         <div className="store">
