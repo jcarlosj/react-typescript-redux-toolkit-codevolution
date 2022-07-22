@@ -1,10 +1,10 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
 
-import cakeReducer from'../features/cake/cakeSlice.js';
-import icecreamReducer from'../features/icecream/icecreamSlice.js';
-import userReducer from'../features/user/userSlice.js';
-import userByIdReducer from'../features/user/userByIdSlice.js';
+import cakeReducer from '../features/cake/cakeSlice';
+import icecreamReducer from '../features/icecream/icecreamSlice';
+import userReducer from '../features/user/userSlice';
+import userByIdReducer from '../features/user/userByIdSlice';
 
 
 // ! Redux store
@@ -22,3 +22,7 @@ const store = configureStore({
 
 
 export default store;
+
+// ! Vamos a exportar dos tipos inferidos de store.js
+export type RootState = ReturnType<typeof store.getState>       // ? Root State
+export type AppDispatch = typeof store.dispatch;                // ? App Dispatch
